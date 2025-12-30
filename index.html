@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasolina-GP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Gasolina-GP ⛽</h1>
+    </header>
+
+    <main>
+        <section id="resumen-mensual" class="resumen-card">
+            <p>Gasto este mes (<span id="nombre-mes">---</span>)</p>
+            <h2 id="total-mensual">RD$ 0.00</h2>
+            <div class="meta-barra">
+                <div id="progreso-barra" class="progreso-relleno"></div>
+            </div>
+        </section>
+        <button id="btn-nueva-carga" onclick="mostrarFormulario()">+ Nueva Carga de Combustible</button>
+
+        <section id="seccion-formulario" class="oculto">
+            <h3>Registrar Recarga</h3>
+            <form id="gas-form">
+                <label>Tipo de Gasolina:</label>
+                <select id="tipo-gas" onchange="actualizarPrecio()">
+                    <option value="290.10">Premium (RD$290.10)</option>
+                    <option value="272.50">Regular (RD$272.50)</option>
+                </select>
+
+                <label>Monto en RD$:</label>
+                <input type="number" id="monto" placeholder="Ej: 2000" required oninput="calcularGalones()">
+
+                <label>Galones calculados:</label>
+                <input type="text" id="galones" readonly placeholder="0.00">
+
+                <div class="botones-form">
+                    <button type="submit" class="btn-guardar">Guardar Registro</button>
+                    <button type="button" class="btn-cancelar" onclick="ocultarFormulario()">Cancelar</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="historial">
+            <h3>Historial de Consumo</h3>
+            <button id="btn-borrar-historial" class="btn-borrar-historial" onclick="borrarHistorial()">🧹 Borrar
+                Historial</button>
+            <div id="lista-registros">
+            </div>
+        </section>
+    </main>
+
+    <script src="Lógica y Almacenamiento.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
