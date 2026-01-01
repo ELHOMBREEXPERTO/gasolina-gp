@@ -1,3 +1,10 @@
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('Modo Offline Activo', reg))
+            .catch(err => console.error('Error de registro offline', err));
+    });
+}
 function mostrarRegistros() {
     let historial = JSON.parse(localStorage.getItem('registros-gas')) || [];
     listaRegistros.innerHTML = '';
@@ -91,3 +98,28 @@ function eliminarRegistro(id) {
         mostrarRegistros();
     }
 }
+const statusDot = document.getElementById('status-dot');
+const statusText = document.getElementById('status-text');
+
+function actualizarEstadoConexion() {
+    if (navigator.onLine) {
+        // Estás conectado
+        statusDot.className = 'online-dot';
+        statusText.innerText = 'Modo Online';
+        statusText.className = 'online-text';
+        console.log("Conectado a internet");
+    } else {
+        // Estás sin internet
+        statusDot.className = 'offline-dot';
+        statusText.innerText = 'Modo Offline (Local)';
+        statusText.className = 'offline-text';
+        console.log("Sin conexión - usando caché");
+    }
+}
+
+// Escuchar cambios de conexión
+window.addEventListener('online', actualizarEstadoConexion);
+window.addEventListener('offline', actualizarEstadoConexion);
+
+// Ejecutar al cargar la app
+actualizarEstadoConexion();

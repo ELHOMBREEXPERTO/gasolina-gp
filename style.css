@@ -218,3 +218,43 @@ select {
     color: var(--danger-color);
     background: transparent;
 }
+/* Estilos para el indicador de estado */
+#status-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+#status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+/* Estado Online */
+.online-dot {
+    background-color: var(--success-color);
+    box-shadow: 0 0 8px var(--success-color);
+    animation: pulse 2s infinite;
+}
+
+.online-text { color: var(--success-color); }
+
+/* Estado Offline */
+.offline-dot {
+    background-color: var(--danger-color);
+    box-shadow: 0 0 8px var(--danger-color);
+}
+
+.offline-text { color: var(--danger-color); }
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}

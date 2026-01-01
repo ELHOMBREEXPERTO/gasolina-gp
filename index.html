@@ -10,12 +10,17 @@
 
 <body>
     <header>
-        <h1>Gasolina-GP ⛽</h1>
-    </header>
-
+        <header>
+    <h1>Gasolina-GP ⛽</h1>
+    <div id="status-container">
+        <span id="status-dot"></span>
+        <span id="status-text">Cargando...</span>
+    </div>
+</header>
+        
     <main>
         <section id="resumen-mensual" class="resumen-card">
-            <p>Gasto este mes (<span id="nombre-mes">---</span>)</p>
+            <p>Total este mes (<span id="nombre-mes">---</span>)</p>
             <h2 id="total-mensual">RD$ 0.00</h2>
             <div class="meta-barra">
                 <div id="progreso-barra" class="progreso-relleno"></div>
@@ -48,7 +53,7 @@
         <section id="historial">
             <h3>Historial de Consumo</h3>
             <button id="btn-borrar-historial" class="btn-borrar-historial" onclick="borrarHistorial()">🧹 Borrar
-                Historial</button>
+             Historial</button>
             <div id="lista-registros">
             </div>
         </section>
