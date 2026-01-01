@@ -218,6 +218,51 @@ select {
     color: var(--danger-color);
     background: transparent;
 }
+/* Botón eliminar dentro de cada registro */
+.acciones-registro {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+.btn-eliminar {
+    background-color: transparent;
+    color: var(--danger-color);
+    border: 1px solid rgba(239, 68, 68, 0.12);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+.btn-eliminar:hover {
+    background-color: rgba(239, 68, 68, 0.08);
+}
+
+/* Toast de deshacer */
+#undo-toast {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24px;
+    background: rgba(20, 20, 20, 0.9);
+    color: var(--text-primary);
+    padding: 12px 16px;
+    border-radius: 12px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+    z-index: 9999;
+}
+#undo-toast .undo-message {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+#undo-toast #undo-btn {
+    background: transparent;
+    color: var(--accent-color);
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+}
 /* Estilos para el indicador de estado */
 #status-container {
     display: flex;
